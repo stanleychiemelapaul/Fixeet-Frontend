@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { LoginSchema } from "../config/schema";
 import useSubmit from "../hooks/useSubmit";
 import Button from "../components/button";
@@ -9,6 +10,21 @@ const Login = () => {
 
   const onLogin = (data) => {
     console.log(data);
+    const email = data.email;
+    const password = data.password;
+
+    axios
+      .post("https://fixeet.onrender.com/auth/userlogin", {
+        email,
+        password,
+      })
+      .then((response) => {
+        console.log(response);
+        
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
 
   return (
