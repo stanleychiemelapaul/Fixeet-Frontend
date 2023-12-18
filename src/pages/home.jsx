@@ -36,15 +36,35 @@ const Login = () => {
                 bg="bg-white"
                 color="#00BE7A"
                 border="2px"
+                borderRadius="4px"
                 px="1rem"
               />
             </InputGroup>
+            {/* <Input
+              name="location"
+              bg="bg-white"
+              color="#00BE7A"
+              border="2px"
+              borderRadius="4px"
+              height="2.8rem"
+              errors={errors}
+              placeholder="Enter a location"
+              variant="primary"
+            /> */}
             <div className="flex gap-4 justify-between w-[24rem]">
               {" "}
-              <Button variant="secondary" type="submit" width="24rem">
+              <Button
+                variant="secondary"
+                type="submit"
+                className="h-[3rem] rounded-[4px] hover:border-[#007A4E]"
+              >
                 Use Current Location
               </Button>
-              <Button variant="primary" type="submit" width="24rem">
+              <Button
+                variant="primary"
+                type="submit"
+                className="h-[3rem] rounded-[4px] hover:bg-[#007A4E]"
+              >
                 Report Issue
               </Button>
             </div>

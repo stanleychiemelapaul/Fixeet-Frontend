@@ -4,20 +4,29 @@ import useSubmit from "../hooks/useSubmit";
 import Button from "../components/button";
 import Input from "../components/input";
 
-const Login = () => {
+const SignInModal = ({ visible, onClose }) => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);
-
   const onLogin = (data) => {
     console.log(data);
   };
+  const handleOnClose = (e) => {
+    if (e.target.id === "close-modal") onClose();
+  };
+
+  if (!visible) return null;
 
   return (
     <React.Fragment>
-      <section className="flex items-center justify-center mt-8 ">
+      <section
+        id="close-modal"
+        onClick={handleOnClose}
+        className="flex items-center justify-center  fixed inset-0 bg-black bg-opacity-80 backdrop-blur-0] z-40"
+      >
         <div className="flex flex-col gap-8 bg-[#fff] mx-auto md:mx-24 p-10 rounded-[12px] h-auto w-[28rem] md:max-w-[40%] ">
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
             Sign In
           </h1>
+
           <p className="text-secondary text-sm md:text-base font-normal ">
             Enter your Account Details Below
           </p>
@@ -62,4 +71,4 @@ const Login = () => {
     </React.Fragment>
   );
 };
-export default Login;
+export default SignInModal;
