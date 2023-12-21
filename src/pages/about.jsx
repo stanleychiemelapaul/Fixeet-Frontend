@@ -3,8 +3,6 @@ import useSubmit from "@/hooks/useSubmit";
 import { LoginSchema } from "@/config/schema";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Button from "@/components/button";
-import { Flex, Input, InputGroup, Divider, Center } from "@chakra-ui/react";
 
 const About = () => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);

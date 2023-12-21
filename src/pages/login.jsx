@@ -1,8 +1,8 @@
 import React from "react";
-import { LoginSchema } from "../config/schema";
-import useSubmit from "../hooks/useSubmit";
-import Button from "../components/button";
-import Input from "../components/input";
+import { LoginSchema } from "@/config/schema";
+import useSubmit from "@/hooks/useSubmit";
+import Button from "@/components/button";
+import Input from "@/components/input";
 
 const Login = () => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);

@@ -26,11 +26,11 @@ const Login = () => {
           </div>
           <div className="flex flex-col gap-8 md:p-4">
             {" "}
-            <h2 className="text-secondary font-semibold flex flex-wrap w-[23rem]">
+            <h2 className="text-primary text-2xl font-bold flex flex-wrap w-[28rem]">
               Call attention to issues in your locality and notify the
               appropriate authorities to get them resolved
             </h2>
-            <InputGroup size="xl" h="3rem" maxW="23rem" fontWeight={600}>
+            <InputGroup size="xl" h="3rem" maxW="28rem" fontWeight={600}>
               <Input
                 placeholder="Enter a location"
                 bg="bg-white"
@@ -51,7 +51,7 @@ const Login = () => {
               placeholder="Enter a location"
               variant="primary"
             /> */}
-            <div className="flex gap-4 justify-between w-[24rem]">
+            <div className="flex gap-4 justify-between w-[29rem]">
               {" "}
               <Button
                 variant="secondary"
@@ -102,8 +102,8 @@ const Login = () => {
               <Divider orientation="vertical" />
             </Center>
             <div className="font-medium">
-              <p className="">Select location</p>
-              <p>on Map</p>
+              <p className="">Select State</p>
+              <p>& L.G.A</p>
             </div>
           </div>
           <div className="flex items-center gap-4 text-secondary font-semibold">
