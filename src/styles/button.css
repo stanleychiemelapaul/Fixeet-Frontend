@@ -16,7 +16,8 @@
 }
 .btn-primary1 {
   border-radius: 4px;
-  background: #676767;
+  background: #c9c9c9;
+  /* hover: #C9C9C9; */
   color: #ffffff;
 }
 .btn-primary {

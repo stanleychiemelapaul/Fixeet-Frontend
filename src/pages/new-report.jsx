@@ -3,8 +3,10 @@ import useSubmit from "@/hooks/useSubmit";
 import { LoginSchema } from "@/config/schema";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { IoCaretBackOutline } from "react-icons/io5";
+import MapView from "../components/mymap";
 import Button from "@/components/button";
-import { Flex, Input, InputGroup, Divider, Center } from "@chakra-ui/react";
+import { Textarea, Select } from "@chakra-ui/react";
 
 const NewReports = () => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);
@@ -17,67 +19,71 @@ const NewReports = () => {
       <NavBar />
 
       <section className="bg-white items-center justify-center ">
-        <div className="flex flex-col md:flex-row gap-8 py-8 px-4 md:px-8  max-w-[90rem] mx-auto w-full items-center justify-center space-x-5 bg-white">
+        <div className="flex flex-col md:flex-row gap-8 py-8 px-4 md:px-8  max-w-[90rem] mx-auto w-full  justify-center space-x-5 bg-white">
           <div className="flex flex-col gap-8 ">
-            <div className="flex gap-6 items-start">
-              <img
-                className="rounded-[4px] max-w-[14rem] w-full h-auto max-h-[11rem]"
-                src="/badroad.png"
-                alt="bad road picture"
-              />
-              <div className="flex flex-col gap-4">
-                <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                <p className="text-xl flex flex-wrap w-[12rem] text-primary font-bold">
-                  Road in Abysmal Shape, Oremeji Street, Ojuolape LGA, Lagos
-                  State.
-                </p>
-              </div>
+            <div className="flex  items-start gap-2">
+              <Select
+                color="#00BE7A"
+                border="2px"
+                borderRadius="4px"
+                placeholder="Select Cateogory"
+                w="20rem"
+                h="2.5rem"
+              >
+                <option value="option1">Bad Road</option>
+                <option value="option2">Flood</option>
+                <option value="option3">Electricity</option>
+                <option value="option4">Security</option>
+                <option value="option5">Others</option>
+              </Select>
+              <p className="text-xs flex items-center cursor-pointer text-tetiary">
+                {" "}
+                <IoCaretBackOutline /> Go Back
+              </p>
             </div>
-            <div className="flex gap-6 items-start">
-              <img
-                className="rounded-none max-w-[14rem] w-full h-auto max-h-[11rem]"
-                src="/flood.png"
-                alt="Flood Picture"
-              />
-              <div className="flex flex-col gap-4">
-                <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                <p className="text-xl flex flex-wrap w-[12rem]  text-primary font-bold">
-                  Flood on Oremeji Street, Ojuolape LGA, Lagos State.
-                </p>
-              </div>
+            <div className="flex  items-start gap-2">
+              <Select
+                color="#00BE7A"
+                border="2px"
+                borderRadius="4px"
+                placeholder="Select State"
+                w="12rem"
+                h="2.5rem"
+              >
+                <option value="option1">Bad Road</option>
+                <option value="option2">Flood</option>
+                <option value="option3">Electricity</option>
+                <option value="option4">Security</option>
+                <option value="option5">Others</option>
+              </Select>
+              <Select
+                color="#00BE7A"
+                border="2px"
+                borderRadius="4px"
+                placeholder="Select LGA"
+                w="12rem"
+                h="2.5rem"
+              >
+                <option value="option1">Bad Road</option>
+                <option value="option2">Flood</option>
+                <option value="option3">Electricity</option>
+                <option value="option4">Security</option>
+                <option value="option5">Others</option>
+              </Select>
             </div>
-            <div className="flex gap-6 items-start">
-              <img
-                className="rounded-none max-w-[14rem] w-full h-auto max-h-[11rem]"
-                src="/abandonbuilding.png"
-                alt="Abandoned building picture"
-              />
-              <div className="flex flex-col gap-4">
-                <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                <p className="text-xl flex flex-wrap w-[12rem]  text-primary font-bold">
-                  Abandoned building that Area Boys use to perform bad
-                  activities.
-                </p>
-              </div>
-            </div>
+
+            <Textarea className="border-2" placeholder="Description" />
+
+            <Button
+              variant="primary"
+              type="submit"
+              className="h-[3rem] rounded-[4px] hover:bg-[#007A4E]"
+            >
+              Report An Issue
+            </Button>
           </div>
-          <div className="flex flex-col gap-4  md:p-4 bg-light-purple">
-            {" "}
-            <img
-              className="w-[36rem] h-[24rem]"
-              src="/firebg.png"
-              alt="fire incidence"
-            />
-            <p className="text-xs text-tetiary">Nov 15, 2023</p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary">
-              Raging Fire close to Oremeji Street
-            </h2>
-            <p className="text-xl flex flex-wrap w-[36rem] text-secondary">
-              There’s been a fire that has been burning for 4 days, the fire
-              started in Oremeji Forest and is fast approaching the residential
-              area. We’d like the appropriate authorities to attend to this as
-              soon as possible.
-            </p>
+          <div className="flex flex-col gap-4  md:p-1 bg-tetiary">
+            <MapView />
           </div>
         </div>
       </section>

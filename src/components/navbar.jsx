@@ -1,8 +1,9 @@
-import logo from "../../public/fixeet-logo.png";
+import logo from "/fixeet-logo.png";
 import Button from "./button";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import Modal from "./modal"; // Import the Modal component
+import Auth from "./auth";
+import ReportIssueButton from "./ReportIssueButton";
 
 const NavBar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -12,7 +13,12 @@ const NavBar = () => {
 
   return (
     <div className="bg-light flex justify-between items-center px-8 py-4">
-      {showModal && <Modal showSignIn={true} onClose={handleModalClose} />}
+      {/* {showModal && <Modal showSignIn={true} onClose={handleModalClose} />} */}
+      {showModal && (
+        // <Modal showSignIn={true} onClose={handleModalClose}>
+        <Auth onClose={handleModalClose} />
+        // </Modal>
+      )}
       <div className="w-2/5 flex  justify-between items-center relative">
         <div>
           <img src={logo} alt="logo" className="" />
@@ -41,11 +47,7 @@ const NavBar = () => {
           </Link>
         </div>
 
-        <Link to="/new-report">
-          <Button variant="primary" type="submit">
-            Report an Issue
-          </Button>
-        </Link>
+        <ReportIssueButton />
       </div>
     </div>
   );

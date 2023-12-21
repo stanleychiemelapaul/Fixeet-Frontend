@@ -16,6 +16,7 @@
   ); /* Add transparency for overlay effect */
   z-index: 999;
   transition: opacity 0.3s ease; /* Add fade effect */
+  /* display: none; */
 }
 
 /* Modal Content Styles */
