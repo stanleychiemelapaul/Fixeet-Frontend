@@ -37,7 +37,7 @@ const NavBar = () => {
       </div>
 
       {/* Menu and Close icons */}
-      <div className="fixed top-[15px] right-[30px] text-[40px] cursor-pointer">
+      <div className="fixed top-[15px] right-[30px] text-[40px] cursor-pointer md:hidden">
         {showMobileNav ? (
           <IoClose onClick={closeMobileNav} />
         ) : (
@@ -47,7 +47,7 @@ const NavBar = () => {
 
       {/* Main Menu */}
       <div
-        className={`fixed bg-[#002626] w-[100%] h-[100vh] text-white flex flex-col justify-center items-center text-[10px] tracking-[1px] gap-4 md:hidden overflow-hidden ${
+        className={`relative bg-[#002626] w-full h-[100vh] text-white flex flex-col justify-center items-center text-[10px] tracking-[1px] gap-4 md:hidden overflow-hidden ${
           showMobileNav ? "block" : "hidden"
         }`}
       >
@@ -80,7 +80,7 @@ const NavBar = () => {
           All Reports
         </Link>
 
-        {/* <ReportIssueButton /> */}
+        <ReportIssueButton className="mb-4 hover:bg-[green] rounded-md w-auto p-1 duration-500 hover:-translate-y-1" />
       </div>
 
       <div className="flex gap-8 justify-end  ">
