@@ -72,7 +72,7 @@ const Login = () => {
           </div>
         </div>
       </section>
-      <section className="bg-light flex flex-col gap-4 py-4  space-x-10">
+      <section className="bg-light flex flex-col gap-4 py-4 items-center space-x-10">
         <h2 className="font-bold text-2xl mt-4 flex mx-12 ">
           How to report an Issue.
         </h2>
@@ -88,7 +88,7 @@ const Login = () => {
           flexWrap={{ base: "wrap", md: "nowrap" }}
         > */}
 
-        <div className="flex-col flex md:flex-row md:space-x-10 gap-4 ">
+        <div className="flex-col   flex md:flex-row md:space-x-10 gap-4 ">
           <div className="flex items-center gap-4 text-secondary font-semibold">
             <h2 className="text-5xl"> 1 </h2>
             <Center height="50px">
@@ -132,8 +132,8 @@ const Login = () => {
       <section className="bg-white items-center justify-center ">
         <div className="flex flex-col items-center p-8">
           <h2 className="font-bold text-2xl  ">Recent Reports</h2>
-          <div className="flex flex-col md:flex-row gap-4 py-8 px-4 md:px-8  max-w-[90rem] mx-auto w-full items-center justify-center space-x-5">
-            <div className="flex flex-col gap-4  md:p-4">
+          <div className="flex flex-col md:flex-row gap-4 py-4 px-2 md:px-8  max-w-[90rem]  w-auto items-center justify-center space-x-5">
+            <div className="flex flex-col gap-4 p-2 md:p-4">
               {" "}
               <img
                 className="w-[auto] h-[auto]"
@@ -153,7 +153,56 @@ const Login = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-4  ">
+            <div
+              onClick={() => {
+                window.location.href = "/report";
+              }}
+              className="flex flex-col  gap-4 cursor-pointer p-2 "
+            >
+              <div className="flex flex-col md:flex-row gap-4 items-start">
+                <img
+                  className="rounded-[4px] max-w-[14rem] w-auto h-auto max-h-[11rem]"
+                  src="/badroad.png"
+                  alt="bad road picture"
+                />
+                <div className="flex flex-col  gap-2 ">
+                  <p className="text-xs text-tetiary">Nov 15, 2023</p>
+                  <p className="text-sm md:text-xl flex text-primary font-bold ">
+                    Road in Abysmal Shape, Oremeji Street, Ojuolape LGA, Lagos
+                    State.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 items-start">
+                <img
+                  className="rounded-none max-w-[14rem] w-auto h-auto max-h-[11rem]"
+                  src="/flood.png"
+                  alt="Flood Picture"
+                />
+                <div className="flex flex-col gap-2">
+                  <p className="text-xs text-tetiary">Nov 15, 2023</p>
+                  <p className=" text-sm md:text-xl  flex  text-primary font-bold">
+                    Flood on Oremeji Street, Ojuolape LGA, Lagos State.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-4 items-start">
+                <img
+                  className="rounded-none max-w-[14rem] w-full h-auto max-h-[11rem]"
+                  src="/abandonbuilding.png"
+                  alt="Abandoned building picture"
+                />
+                <div className="flex flex-col gap-2">
+                  <p className="text-xs text-tetiary">Nov 15, 2023</p>
+                  <p className="text-sm md:text-xl flex text-primary font-bold">
+                    Abandoned building that Area Boys use to perform bad
+                    activities.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* <div className="flex flex-col gap-4 bg-white p-4 ">
               <div className="flex flex-col gap-4 items-start">
                 <img
                   className="rounded-[4px]  w-[auto] h-[auto] "
@@ -195,7 +244,7 @@ const Login = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

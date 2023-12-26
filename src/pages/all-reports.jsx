@@ -16,13 +16,13 @@ const AllReports = () => {
     <React.Fragment>
       <NavBar />
 
-      <section className="bg-white items-center justify-center ">
-        <div className="flex flex-col md:flex-row gap-4 py-4 px-4 md:px-4  max-w-[90rem] mx-auto w-full items-center justify-center space-x-5 ">
+      <section className="bg-white items-start justify-center ">
+        <div className="flex flex-col md:flex-row gap-4 py-4 px-4 md:px-4  max-w-[90rem] mx-auto w-full items-start justify-center space-x-5 ">
           <div
             onClick={() => {
               window.location.href = "/report";
             }}
-            className="flex flex-col gap-4 cursor-pointer"
+            className="flex flex-col gap-4 cursor-pointer p-2"
           >
             <div className="flex flex-col ">
               <p className="text-secondary text-2xl font-semibold">
