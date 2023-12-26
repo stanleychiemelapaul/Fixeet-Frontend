@@ -65,15 +65,15 @@ const ReportIssue = ({ onClose }) => {
       <section
         id="close-modal"
         onClick={handleOnClose}
-        className="flex items-center justify-center fixed inset-0 bg-black bg-opacity-[0.8] backdrop-blur-0 z-50 "
+        className="flex items-center justify-center fixed inset-0 z-50 bg-black bg-opacity-[0.8] backdrop-blur-0"
       >
-        <div className=" flex-col gap-8 bg-[#fff] mx-auto md:mx-24 px-8 py-6 rounded-[12px] h-auto w-[30rem] md:max-w-[40%] hidden lg:inline-flex overflow-y-auto">
+        <div className="flex flex-col gap-8 bg-[#fff] p-10 rounded-[12px] h-auto w-auto md:w-[30rem] md:max-w-[50%]">
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
             Report an Issue
           </h1>
 
           <form
-            className="flex flex-wrap gap-2 overflow-y-hidden overflow-x-hidden"
+            className="flex flex-col gap-2"
             onSubmit={handleSubmit(onLogin)}
           >
             <div className="flex flex-col gap-4 ">
@@ -135,12 +135,12 @@ const ReportIssue = ({ onClose }) => {
               <Textarea
                 placeholder="What is the issue?"
                 value={text}
-                className="w-full h-[16rem] resize-none focus:outline-none rounded-md p-2 overflow-hidden"
+                className="w-full h-[16rem] resize-none focus:outline-none rounded-md p-2 overflow-y-scroll"
                 onChange={handleTextChange}
               />
 
               <div className="flex flex-col gap-2">
-                <div className="flex gap-2 overflow-x-hidden">
+                <div className="flex gap-2 justify-start overflow-x-hidden">
                   {images.slice(0, 3).map((image, id) => (
                     <div key={id} className="relative border-2 ">
                       <img
@@ -164,7 +164,7 @@ const ReportIssue = ({ onClose }) => {
                     onMouseEnter={() => setShowHoverModal(true)}
                     onMouseLeave={() => setShowHoverModal(false)}
                   >
-                    <FaImage className=" flex text-2xl justify-start" /> Upload
+                    <FaImage className=" flex  text-2xl justify-start" /> Upload
                     Image
                   </label>
                   <input

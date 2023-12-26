@@ -5,8 +5,11 @@ import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
 import MapView from "@/components/mymap";
 import Button from "@/components/button";
+import { Flex, Input, InputGroup, Divider, Center } from "@chakra-ui/react";
+import { Select, Textarea } from "@chakra-ui/react";
+import { IoCaretBackOutline } from "react-icons/io5";
 
-const Report = () => {
+const Report = (handleOnClose) => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);
 
   const onLogin = (data) => {
@@ -17,69 +20,84 @@ const Report = () => {
       <NavBar />
 
       <section className="bg-white items-center justify-center ">
-        <div className="flex flex-col md:flex-row gap-4 py-4 px-4 md:px-4  max-w-[90rem] mx-auto w-full items-center justify-center space-x-5 bg-white">
-          <div className="flex flex-col gap-4 ">
-            <div className="flex flex-col ">
-              <p className="text-secondary text-2xl font-semibold">
-                All Reports
+        <div className="flex flex-col w-auto md:flex-row gap-4 p-4 md:px-4   justify-center  bg-white ">
+          <div className="flex flex-col gap-4  p-4">
+            <div className="flex items-center  gap-4 ">
+              <p className="text-primary text-[1.1rem]  md:text-2xl font-bold ">
+                Road in Abysmal Shape at Oremeji Street.
               </p>
-              <p className="text-secondary text-sm font-semibold">
-                showing <span className="text-tetiary">1-3</span> of 245 results
+              <p
+                id="close-modal"
+                onClick={() => {
+                  window.location.href = "/all-reports";
+                }}
+                className="text-sm w-[6rem] flex items-center cursor-pointer text-tetiary"
+              >
+                {" "}
+                <IoCaretBackOutline /> Go Back
               </p>
             </div>
-            <div className="flex gap-6 items-start">
+
+            <div className="flex items-center bg-white">
               <img
-                className="rounded-[4px] max-w-[14rem] w-full h-auto max-h-[11rem]"
+                className="rounded-[4px] h-[20rem] w-[28rem]"
                 src="/badroad.png"
                 alt="bad road picture"
               />
-              <div className="flex flex-col gap-4">
-                <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                <p className="text-xl flex flex-wrap w-[12rem] text-primary font-bold">
-                  Road in Abysmal Shape, Oremeji Street, Ojuolape LGA, Lagos
-                  State.
-                </p>
-              </div>
             </div>
-            <div className="flex gap-6 items-start">
-              <img
-                className="rounded-none max-w-[14rem] w-full h-auto max-h-[11rem]"
-                src="/flood.png"
-                alt="Flood Picture"
-              />
-              <div className="flex flex-col gap-4">
-                <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                <p className="text-xl flex flex-wrap w-[12rem]  text-primary font-bold">
-                  Flood on Oremeji Street, Ojuolape LGA, Lagos State.
-                </p>
-              </div>
+            <div className="grid grid-cols-3 items-center max-w-md  justify-center">
+              <img src="/badroad1.png" alt="badroad1 Picture" />
+              <img src="/badroad3.png" alt="badroad3 Picture" />
+              <img src="/badroad2.png" alt="badroad2 Picture" />
             </div>
 
-            <div className="flex gap-6 items-start">
-              <img
-                className="rounded-none max-w-[14rem] w-full h-auto max-h-[11rem]"
-                src="/abandonbuilding.png"
-                alt="Abandoned building picture"
-              />
-              <div className="flex flex-col gap-4">
-                <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                <p className="text-xl flex flex-wrap w-[12rem]  text-primary font-bold">
-                  Abandoned building that Area Boys use to perform bad
-                  activities.
-                </p>
-              </div>
+            <div className="flex flex-col ">
+              <p className="text-xs text-tetiary">Nov 15, 2023</p>
+              <p className=" flex  w-[auto]  text-secondary ">
+                The road at Oremeji Street, Ojuolape LGA of Lagos State has been
+                bad for over a year. Cars can’t even traverse this road as they
+                usually get stuck in the muddy patches. Only motorcycles and big
+                vehicles have managed to pass.
+              </p>
             </div>
-            <div className="flex gap-4 justify-between">
+
+            <div className="flex gap-4 items-center justify-between ">
               <Button className="hover:bg-[#989898]" variant="primary1">
-                Previous
+                <div className="flex items-center  justify-center gap-4 text-white font-semibold">
+                  <h2 className="text-2xl"> 24 </h2>
+                  <Center height="40px">
+                    <Divider orientation="vertical" />
+                  </Center>
+                  <p className="font-medium flex flex-col">Upvote</p>
+                </div>
               </Button>
               <Button className="hover:bg-[#007A4E]" variant="primary">
-                Next
+                <div className="flex items-center  justify-center gap-4 text-white font-semibold">
+                  <h2 className="text-3xl"> 0 </h2>
+                  <Center height="40px">
+                    <Divider orientation="vertical" />
+                  </Center>
+                  <div className="font-medium flex flex-col">
+                    <p>Resolved</p>
+                  </div>
+                </div>
               </Button>
             </div>
+            <div className="flex flex-col bg-light  p-4 gap-4 w-[auto] rounded-[4px]">
+              <Textarea placeholder="Enter comments here" />
+              <Button variant="primary" type="submit">
+                Comment
+              </Button>
+            </div>
+
+            <p className="  text-secondary ">
+              This is a comment made by{" "}
+              <span className=" text-tetiary">Firstname Lastname</span> on{" "}
+              <span className="text-sm text-tetiary">Dec 12, 2023</span>
+            </p>
           </div>
 
-          <div className="flex flex-col gap-4  md:p-1 bg-tetiary z-10">
+          <div className="hidden md:flex md:flex-col gap-4  md:p-1 bg-tetiary z-10">
             <MapView />
           </div>
         </div>

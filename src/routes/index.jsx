@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
-import { Home, Error, Login, Register } from "./route";
+import { Home, Error } from "./route";
 import LoadingSpinner from "../components/loading";
-import ForgotPassword from "../pages/forgot-password";
-import ResetPassword from "../pages/reset-password";
-import NewReports from "../pages/new-report";
 import AllReports from "../pages/all-reports";
 import Report from "../pages/report";
 import About from "../pages/about";
@@ -28,24 +25,7 @@ const router = createBrowserRouter([
     ),
     errorElement: <Error />,
   },
-  {
-    path: "/login",
-    element: (
-      <Suspense fallback={<LoadingSpinner />}>
-        <Login />
-      </Suspense>
-    ),
-    errorElement: <Error />,
-  },
-  {
-    path: "/register",
-    element: (
-      <Suspense fallback={<LoadingSpinner />}>
-        <Register />
-      </Suspense>
-    ),
-    errorElement: <Error />,
-  },
+
   {
     path: "/all-reports",
     element: (
@@ -64,33 +44,7 @@ const router = createBrowserRouter([
     ),
     errorElement: <Error />,
   },
-  {
-    path: "/forgot-password",
-    element: (
-      <Suspense fallback={<LoadingSpinner />}>
-        <ForgotPassword />
-      </Suspense>
-    ),
-    errorElement: <Error />,
-  },
-  {
-    path: "/reset-password",
-    element: (
-      <Suspense fallback={<LoadingSpinner />}>
-        <ResetPassword />
-      </Suspense>
-    ),
-    errorElement: <Error />,
-  },
-  {
-    path: "/new-report",
-    element: (
-      <Suspense fallback={<LoadingSpinner />}>
-        <NewReports />
-      </Suspense>
-    ),
-    errorElement: <Error />,
-  },
+
   {
     path: "/about",
     element: (

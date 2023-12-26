@@ -22,7 +22,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
         onClick={handleOnClose}
         className="flex items-center justify-center fixed inset-0 bg-black bg-opacity-[0.8] backdrop-blur-0 z-40"
       >
-        <div className="flex flex-col gap-8 bg-[#fff] mx-auto md:mx-24 p-10 rounded-[12px] h-auto w-[28rem] md:max-w-[40%]">
+        <div className="flex flex-col gap-8 bg-[#fff] mx-auto md:mx-24 p-10 rounded-xl h-auto md:w-[28rem] md:max-w-[40%]">
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
             Sign Up
           </h1>
