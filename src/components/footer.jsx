@@ -22,10 +22,10 @@ const Footer = () => {
             <Link className="" to="#">
               Contact Us
             </Link>
-            <Link to="#">Your Reports</Link>
-            <Link to="#">All Reports</Link>
-            <Link to="#">Local Alerts</Link>
-            <Link to="#">About Us</Link>
+            <Link to="/reports">Your Reports</Link>
+            <Link to="/all-reports">All Reports</Link>
+            <Link to="/home">Local Alerts</Link>
+            <Link to="/about">About Us</Link>
           </div>
         </div>
         <div className="flex flex-col items-center bg-white p-8 gap-4 w-[auto] rounded-[4px]">

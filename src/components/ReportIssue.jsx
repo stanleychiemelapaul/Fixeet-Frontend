@@ -157,7 +157,7 @@ const ReportIssue = ({ onClose }) => {
                     </div>
                   ))}
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center ">
                   <label
                     htmlFor="upload-image"
                     className="cursor-pointer  text-center flex gap-2"
@@ -170,6 +170,7 @@ const ReportIssue = ({ onClose }) => {
                   <input
                     id="upload-image"
                     type="file"
+                    accept="image/*"
                     multiple
                     className="hidden"
                     onChange={handleImageChange}
@@ -196,7 +197,7 @@ const ReportIssue = ({ onClose }) => {
                 </Button>
               </div>
 
-              {/* <div>{images.length > 3 && <p>Sorrryy</p>}</div> */}
+              <div>{images.length > 3 && <p>Sorrryy</p>}</div>
             </div>
           </form>
         </div>
