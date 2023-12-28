@@ -90,7 +90,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               </p>
             </div>
           ) : (
-            <p className="text-secondary text-sm md:text-base font-normal ">
+            <p className=" text-center  text-secondary text-sm md:text-base font-normal ">
               Enter your Account Details Below
             </p>
           )}
