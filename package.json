@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "https://fixeet.onrender.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -20,8 +21,9 @@
     "@tanstack/query-sync-storage-persister": "^4.35.3",
     "@tanstack/react-query": "^4.35.3",
     "@tanstack/react-query-persist-client": "^4.35.5",
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
     "framer-motion": "^10.16.4",
     "leaflet": "^1.9.4",
     "primereact": "^10.2.1",

@@ -1,13 +1,57 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 import { LoginSchema } from "../config/schema";
 import useSubmit from "../hooks/useSubmit";
 import Button from "../components/button";
 import Input from "../components/input";
+import { apiurl } from "../config/apiurl";
 
 const SignUp = ({ visible, onClose, switchToSignIn }) => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);
-  const onLogin = (data) => {
+
+  const [errResponse, seterrResponse] = useState(null);
+  const [successRes, setsuccessRes] = useState(null);
+
+
+  const onSignupSubmit = (data) => {
     console.log(data);
+    let userName = data.name;
+    let emailAddress = data.email;
+    let userPassword = data.password;
+    console.log(data);
+    axios
+      .post(apiurl + "/auth/registeruser", {
+        userName, 
+        emailAddress,
+        userPassword,
+      })
+      .then(function (response) {
+        // Handle successful login here (e.g., store tokens, redirect, etc.)
+        console.log("Login successful:", response.data);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(
+            "Server responded with error status:",
+            error.response.status
+          );
+          console.log("Error data:", error.response.data);
+
+          if (
+            error.response.status === 422
+          ) {
+            seterrResponse(error.response.data.message);
+          } else {
+            seterrResponse('An error occurred. Please try again later.');
+          }
+        } else if (error.request) {
+          console.log("No response received:", error.request);
+          // Handle request-related errors
+        } else {
+          console.log("Error setting up the request:", error.message);
+          seterrResponse("Error occurred while setting up your request");
+        }
+      });
   };
   const handleOnClose = (e) => {
     if (e.target.id === "close-modal") onClose();
@@ -26,13 +70,34 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
             Sign Up
           </h1>
-
-          <p className="text-secondary text-sm md:text-base font-normal ">
-            Enter your Account Details Below
-          </p>
+          {errResponse ? (
+            <div
+              className="text-center gen alert alert-danger text-danger"
+              id="message"
+              role="alert" style={{ color: "red" }}
+            >
+              {errResponse}
+            </div>
+          ) : successRes ? (
+            <div
+              className="text-center gen alert alert-success"
+              id="message"
+              role="alert" 
+            >
+              {successRes}
+              <p className="mt-0 pt-0">
+                Redirecting <i className="fa fa-spinner fa-pulse"></i>
+              </p>
+            </div>
+          ) : (
+            <p className="text-secondary text-sm md:text-base font-normal ">
+              Enter your Account Details Below
+            </p>
+          )}
+          
           <form
             className="flex flex-col gap-2 "
-            onSubmit={handleSubmit(onLogin)}
+            onSubmit={handleSubmit(onSignupSubmit)}
           >
             <Input
               name="name"
