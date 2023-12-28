@@ -76,42 +76,40 @@ const MapView = () => {
   }, [marker]);
 
   return (
-    <div>
-      <MapContainer
-        style={{ height: "40rem", width: "45rem" }}
-        zoom={10}
-        center={[6.5227, 3.6218]}
+    <MapContainer
+      style={{ height: "100vh", width: "45rem" }}
+      zoom={10}
+      center={[6.5227, 3.6218]}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <GeoJSON
+        style={countryStyle}
+        data={mapData.features}
+        onEachFeature={onEachCountry}
+      />
+      <MarkerClusterGroup
+        chunkedLoading
+        iconCreateFunction={createClusterCustomIcon}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <GeoJSON
-          style={countryStyle}
-          data={mapData.features}
-          onEachFeature={onEachCountry}
-        />
-        <MarkerClusterGroup
-          chunkedLoading
-          iconCreateFunction={createClusterCustomIcon}
-        >
-          {!marker?.length <= 0 ? (
-            marker.map((marker) => (
-              <Marker position={marker.geocode} icon={customIcon}>
-                <Popup>{marker.popUp}</Popup>
-              </Marker>
-            ))
-          ) : (
-            <p>NOOO</p>
-          )}
-          {/* {marker.map((marker) => (
+        {!marker?.length <= 0 ? (
+          marker.map((marker) => (
+            <Marker position={marker.geocode} icon={customIcon}>
+              <Popup>{marker.popUp}</Popup>
+            </Marker>
+          ))
+        ) : (
+          <p>NOOO</p>
+        )}
+        {/* {marker.map((marker) => (
             <Marker position={marker.geocode} icon={customIcon}>
               <Popup>{marker.popUp}</Popup>
             </Marker>
           ))} */}
-        </MarkerClusterGroup>
-      </MapContainer>
-    </div>
+      </MarkerClusterGroup>
+    </MapContainer>
   );
 };
 

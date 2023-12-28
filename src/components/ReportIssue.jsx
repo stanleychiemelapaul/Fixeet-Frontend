@@ -65,15 +65,15 @@ const ReportIssue = ({ onClose }) => {
       <section
         id="close-modal"
         onClick={handleOnClose}
-        className="flex items-center justify-center fixed inset-0 bg-black bg-opacity-[0.8] backdrop-blur-0 z-50 "
+        className="flex flex-col items-center justify-center fixed inset-0 z-40 bg-black bg-opacity-[0.8] backdrop-blur-0 w-[100%]"
       >
-        <div className=" flex-col gap-8 bg-[#fff] mx-auto md:mx-24 px-8 py-6 rounded-[12px] h-auto w-[30rem] md:max-w-[40%] hidden lg:inline-flex overflow-y-auto">
+        <div className="flex flex-col gap-8 w-[95%] bg-[#fff]  md:mx-24 p-8 rounded-xl h-auto md:w-[30rem] md:max-w-[50%]">
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
             Report an Issue
           </h1>
 
           <form
-            className="flex flex-wrap gap-2 overflow-y-hidden overflow-x-hidden"
+            className="flex flex-col gap-2 w-auto"
             onSubmit={handleSubmit(onLogin)}
           >
             <div className="flex flex-col gap-4 ">
@@ -135,18 +135,18 @@ const ReportIssue = ({ onClose }) => {
               <Textarea
                 placeholder="What is the issue?"
                 value={text}
-                className="w-full h-[16rem] resize-none focus:outline-none rounded-md p-2 overflow-hidden"
+                className="w-[auto] h-[auto] text-primary resize-none focus:outline-none rounded-md p-2 overflow-y-scroll"
                 onChange={handleTextChange}
               />
 
               <div className="flex flex-col gap-2">
-                <div className="flex gap-2 overflow-x-hidden">
+                <div className="flex gap-2 justify-start overflow-x-hidden">
                   {images.slice(0, 3).map((image, id) => (
                     <div key={id} className="relative border-2 ">
                       <img
                         src={URL.createObjectURL(image)}
                         alt={`img-${id}`}
-                        className="p-2 max-w-[8rem] max-h-[7rem] "
+                        className="p-2 md:max-w-[8rem] md:max-h-[7rem] "
                       />
                       <button
                         onClick={() => deleteImage(id)}
@@ -157,25 +157,26 @@ const ReportIssue = ({ onClose }) => {
                     </div>
                   ))}
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center ">
                   <label
                     htmlFor="upload-image"
                     className="cursor-pointer  text-center flex gap-2"
                     onMouseEnter={() => setShowHoverModal(true)}
                     onMouseLeave={() => setShowHoverModal(false)}
                   >
-                    <FaImage className=" flex text-2xl justify-start" /> Upload
-                    Image
+                    <FaImage className=" flex text-primary text-2xl justify-start" />{" "}
+                    Upload Image
                   </label>
                   <input
                     id="upload-image"
                     type="file"
+                    accept="image/*"
                     multiple
                     className="hidden"
                     onChange={handleImageChange}
                   />
                   {showHoverModal && (
-                    <div className="absolute text-sm rounded-lg bg-white p-1 shadow-md -mt-14 border border-1">
+                    <div className="absolute text-primary text-sm rounded-lg bg-white p-1 shadow-md -mt-14 border border-1">
                       <p>Add Image(s)</p>
                     </div>
                   )}
@@ -196,7 +197,7 @@ const ReportIssue = ({ onClose }) => {
                 </Button>
               </div>
 
-              {/* <div>{images.length > 3 && <p>Sorrryy</p>}</div> */}
+              <div>{images.length > 3 && <p>Sorrryy</p>}</div>
             </div>
           </form>
         </div>
