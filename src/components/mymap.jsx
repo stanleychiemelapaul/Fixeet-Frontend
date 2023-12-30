@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, GeoJSON, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  GeoJSON,
+  Popup,
+  useMap,
+} from "react-leaflet";
 import mapData from "@/data/countries.json";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, point } from "leaflet";
 import "@/styles/map.css";
 import logo from "/location.png";
+import L from "leaflet";
 import { json } from "react-router-dom";
 
 // create custom icon
@@ -23,9 +31,31 @@ const createClusterCustomIcon = function (cluster) {
   });
 };
 
-const API_BASE_URL = "https://llll.onrender.com";
+const position = [6.5227, 3.6218];
 
-const MapView = () => {
+function ResetCenterView(props) {
+  const { selectPosition } = props;
+  const map = useMap();
+
+  useEffect(() => {
+    if (selectPosition) {
+      map.setView(
+        L.latLng(selectPosition?.lat, selectPosition?.lon),
+        map.getZoom(),
+        {
+          animate: true,
+        }
+      );
+    }
+  }, [selectPosition]);
+
+  return null;
+}
+// const API_BASE_URL = "https://llll.onrender.com";
+
+const MapView = (props) => {
+  const { selectPosition } = props;
+  const locationSelection = [selectPosition?.lat, selectPosition?.lon];
   // const [marker, setMarker] = useState([]);
 
   // const getMarkers = async () => {
@@ -61,10 +91,9 @@ const MapView = () => {
     },
   ];
   const countryStyle = {
-    fillColor: "green",
     fillOpacity: "0",
     color: "black",
-    weight: "1",
+    weight: ".5",
   };
 
   const onEachCountry = (country, layer) => {
@@ -78,37 +107,41 @@ const MapView = () => {
   return (
     <MapContainer
       style={{ height: "100vh", width: "45rem" }}
-      zoom={10}
-      center={[6.5227, 3.6218]}
+      zoom={11}
+      center={position}
+      className="flex z-10"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=I7fTkNOZe0l7PPytA5zf"
       />
       <GeoJSON
         style={countryStyle}
         data={mapData.features}
         onEachFeature={onEachCountry}
       />
-      <MarkerClusterGroup
-        chunkedLoading
-        iconCreateFunction={createClusterCustomIcon}
-      >
-        {!marker?.length <= 0 ? (
-          marker.map((marker) => (
-            <Marker position={marker.geocode} icon={customIcon}>
-              <Popup>{marker.popUp}</Popup>
-            </Marker>
-          ))
-        ) : (
-          <p>NOOO</p>
-        )}
-        {/* {marker.map((marker) => (
+      {selectPosition && (
+        <MarkerClusterGroup
+          chunkedLoading
+          iconCreateFunction={createClusterCustomIcon}
+        >
+          {!marker?.length <= 0 ? (
+            marker.map((marker) => (
+              <Marker position={locationSelection} icon={customIcon}>
+                <Popup>{marker.popUp}</Popup>
+              </Marker>
+            ))
+          ) : (
+            <p>NOOO</p>
+          )}
+          {/* {marker.map((marker) => (
             <Marker position={marker.geocode} icon={customIcon}>
               <Popup>{marker.popUp}</Popup>
             </Marker>
           ))} */}
-      </MarkerClusterGroup>
+        </MarkerClusterGroup>
+      )}
+      <ResetCenterView selectPosition={selectPosition} />
     </MapContainer>
   );
 };
