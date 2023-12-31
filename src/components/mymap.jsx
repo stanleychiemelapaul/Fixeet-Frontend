@@ -27,7 +27,7 @@ const createClusterCustomIcon = function (cluster) {
   return new divIcon({
     html: `<span class="cluster-icon">${cluster.getChildCount()}</span>`,
     className: "custom-marker-cluster",
-    iconSize: point(33, 33, true),
+    iconSize: point(22, 22, true),
   });
 };
 
@@ -39,13 +39,20 @@ function ResetCenterView(props) {
 
   useEffect(() => {
     if (selectPosition) {
-      map.setView(
+      map.flyTo(
         L.latLng(selectPosition?.lat, selectPosition?.lon),
-        map.getZoom(),
+        map.getZoom(15),
         {
           animate: true,
         }
       );
+      // map.setView(
+      //   L.latLng(selectPosition?.lat, selectPosition?.lon),
+      //   map.getZoom(10),
+      //   {
+      //     animate: true,
+      //   }
+      // );
     }
   }, [selectPosition]);
 
