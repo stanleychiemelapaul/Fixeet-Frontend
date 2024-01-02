@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useSubmit from "@/hooks/useSubmit";
 import { LoginSchema } from "@/config/schema";
 import NavBar from "@/components/navbar";
@@ -8,13 +8,16 @@ import Button from "@/components/button";
 import { Flex, Input, InputGroup, Divider, Center } from "@chakra-ui/react";
 import { Select, Textarea } from "@chakra-ui/react";
 import { IoCaretBackOutline } from "react-icons/io5";
+import SearchBox from "@/components/search";
 
 const Report = (handleOnClose) => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);
+  const [selectPosition, setSelectPosition] = useState(null);
 
   const onLogin = (data) => {
     console.log(data);
   };
+
   return (
     <React.Fragment>
       <NavBar />
@@ -96,9 +99,14 @@ const Report = (handleOnClose) => {
               <span className="text-sm text-tetiary">Dec 12, 2023</span>
             </p>
           </div>
-
-          <div className="hidden md:flex md:flex-col gap-4  md:p-1 bg-tetiary z-10">
-            <MapView />
+          <div className="flex flex-col gap-2">
+            <SearchBox
+              selectPosition={selectPosition}
+              setSelectPosition={setSelectPosition}
+            />
+            <div className="hidden md:flex md:flex-col gap-4  md:p-1 bg-tetiary z-10">
+              <MapView selectPosition={selectPosition} />
+            </div>
           </div>
         </div>
       </section>

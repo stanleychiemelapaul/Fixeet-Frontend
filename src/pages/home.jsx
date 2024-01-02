@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useSubmit from "@/hooks/useSubmit";
 import { LoginSchema } from "@/config/schema";
 import NavBar from "@/components/navbar";
@@ -7,9 +7,12 @@ import Button from "@/components/button";
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import { Flex, Input, InputGroup, Divider, Center } from "@chakra-ui/react";
+import SearchBox from "@/components/search";
+import ReportIssueButton from "@/components/ReportIssueButton";
 
-const Login = () => {
+const Home = () => {
   const { errors, register, handleSubmit } = useSubmit(LoginSchema);
+  const [selectPosition, setSelectPosition] = useState(null);
 
   const onLogin = (data) => {
     console.log(data);
@@ -31,7 +34,11 @@ const Login = () => {
               Call attention to issues in your locality and notify the
               appropriate authorities to get them resolved
             </h2>
-            <InputGroup size="xl" h="3rem" fontWeight={600}>
+            <SearchBox
+              selectPosition={selectPosition}
+              setSelectPosition={setSelectPosition}
+            />
+            {/* <InputGroup size="xl" h="3rem" fontWeight={600}>
               <Input
                 placeholder="Enter a location"
                 bg="bg-white"
@@ -40,7 +47,7 @@ const Login = () => {
                 borderRadius="4px"
                 px="1rem"
               />
-            </InputGroup>
+            </InputGroup> */}
             {/* <Input
               name="location"
               bg="bg-white"
@@ -52,22 +59,25 @@ const Login = () => {
               placeholder="Enter a location"
               variant="primary"
             /> */}
-            <div className="flex gap-2  w-auto justify-between md:w-[29rem]">
+            <div className="flex   md:max-w-[24rem] justify-between ">
               {" "}
               <Button
                 variant="secondary"
                 type="submit"
                 className=" rounded-[4px] flex items-center gap-2 justify-center hover:border-[#007A4E]"
               >
-                <IoEyeSharp /> View Issues
+                <IoEyeSharp /> Use my Location
               </Button>
-              <Button
+              <div>
+                <ReportIssueButton />
+              </div>
+              {/* <Button
                 variant="primary"
-                type="submit"
+                // type="submit"
                 className="rounded-[4px] px-0 mx-0 flex gap-2 items-center justify-center hover:bg-[#007A4E]"
               >
                 <FaEdit /> Report Issue
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
@@ -253,4 +263,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Home;

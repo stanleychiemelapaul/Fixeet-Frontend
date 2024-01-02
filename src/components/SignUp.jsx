@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { LoginSchema } from "../config/schema";
 import useSubmit from "../hooks/useSubmit";
@@ -12,7 +12,6 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
   const [errResponse, seterrResponse] = useState(null);
   const [successRes, setsuccessRes] = useState(null);
 
-
   const onSignupSubmit = (data) => {
     console.log(data);
     let userName = data.name;
@@ -21,7 +20,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
     console.log(data);
     axios
       .post(apiurl + "/auth/registeruser", {
-        userName, 
+        userName,
         emailAddress,
         userPassword,
       })
@@ -37,12 +36,10 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
           );
           console.log("Error data:", error.response.data);
 
-          if (
-            error.response.status === 422
-          ) {
+          if (error.response.status === 422) {
             seterrResponse(error.response.data.message);
           } else {
-            seterrResponse('An error occurred. Please try again later.');
+            seterrResponse("An error occurred. Please try again later.");
           }
         } else if (error.request) {
           console.log("No response received:", error.request);
@@ -66,15 +63,16 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
         onClick={handleOnClose}
         className="flex items-center justify-center fixed inset-0 bg-black bg-opacity-[0.8] backdrop-blur-0 z-40"
       >
-        <div className="flex flex-col gap-8 bg-[#fff] mx-auto md:mx-24 p-10 rounded-xl h-auto md:w-[28rem] md:max-w-[40%]">
-          <h1 className="text-primary md:text-4xl text-2xl font-bold ">
+        <div className="flex flex-col gap-2 bg-[#fff] mx-auto md:mx-24 p-10 rounded-xl h-[36rem] md:w-[28rem] md:max-w-[40%]">
+          <h1 className="text-primary md:text-4xl text-2xl font-bold -mt-3">
             Sign Up
           </h1>
           {errResponse ? (
             <div
               className="text-center gen alert alert-danger text-danger"
               id="message"
-              role="alert" style={{ color: "red" }}
+              role="alert"
+              style={{ color: "red" }}
             >
               {errResponse}
             </div>
@@ -82,7 +80,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
             <div
               className="text-center gen alert alert-success"
               id="message"
-              role="alert" 
+              role="alert"
             >
               {successRes}
               <p className="mt-0 pt-0">
@@ -94,7 +92,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               Enter your Account Details Below
             </p>
           )}
-          
+
           <form
             className="flex flex-col gap-2 "
             onSubmit={handleSubmit(onSignupSubmit)}
@@ -127,6 +125,16 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               placeholder="Enter Password"
               id="password"
               label="Password"
+              variant="primary"
+            />
+            <Input
+              name="password"
+              type="password"
+              register={register}
+              errors={errors}
+              placeholder="Confirm Password"
+              id="password"
+              label="Repeat Password"
               variant="primary"
             />
             <div className="flex flex-col gap-2">
