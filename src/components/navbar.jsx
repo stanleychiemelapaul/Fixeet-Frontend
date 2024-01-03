@@ -31,7 +31,7 @@ const NavBar = () => {
         }`}
       >
         {/* Close button in mobile navbar */}
-        <div className=" text-white fixed top-[15px] right-[30px] text-[40px] cursor-pointer mr-2 mt-2">
+        <div className=" text-white fixed top-[.2rem] right-[1.5rem] text-[2.5rem] cursor-pointer mr-2 mt-2">
           <IoClose onClick={closeMobileNav} />
         </div>
         <Link
@@ -61,19 +61,15 @@ const NavBar = () => {
         <ReportIssueButton />
       </div>
       <div className="bg-light flex justify-between items-center px-8 py-4 ">
-        {/* {showModal && <Modal showSignIn={true} onClose={handleModalClose} />} */}
-        {showModal && (
-          // <Modal showSignIn={true} onClose={handleModalClose}>
-          <Auth onClose={handleModalClose} />
-          // </Modal>
-        )}
+        {showModal && <Auth onClose={handleModalClose} />}
         <div className="w-2/5 flex  justify-between items-center relative">
           <div>
             <img src={logo} alt="logo" />
           </div>
         </div>
+
         {/* Menu and Close icons */}
-        <div className="absolute top-[15px] right-[30px] text-[40px] cursor-pointer md:hidden">
+        <div className="absolute top-[0.9rem] right-[2rem] text-[2.5rem] cursor-pointer md:hidden">
           {showMobileNav ? (
             <IoClose onClick={closeMobileNav} />
           ) : (

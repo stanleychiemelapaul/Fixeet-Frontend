@@ -31,7 +31,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className=" flex flex-col justify-center items-center">
+      <div className=" flex flex-col justify-center bg-yellow-300 items-center">
         {" "}
         <img
           style={{
@@ -46,8 +46,7 @@ const Profile = () => {
           alt="placeholder profile image"
         />
         <label htmlFor="" className="mt-3 font-semibold text-5xl mb-4">
-          {" "}
-          Winfred Isaac{" "}
+          Winfred Isaac
         </label>
         <Dialog
           visible={imageCrop}

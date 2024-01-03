@@ -31,9 +31,23 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
         setsuccessRes(response.data.message);
       })
       .catch(function (error) {
+        if (error.response) {
+          console.log(
+            "Server responded with error status:",
+            error.response.status
+          );
+          console.log("Error data:", error.response.data);
 
-        if (error.response.status === 422) {
-          seterrResponse(error.response.data.message);
+          if (
+            error.response.status === 422
+          ) {
+            seterrResponse(error.response.data.message);
+          } else {
+            seterrResponse('An error occurred. Please try again later.');
+          }
+        } else if (error.request) {
+          console.log("No response received:", error.request);
+          // Handle request-related errors
         } else {
           seterrResponse("An error occurred. Please try again later.");
         }
@@ -115,16 +129,6 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               placeholder="Enter Password"
               id="password"
               label="Password"
-              variant="primary"
-            />
-            <Input
-              name="password"
-              type="password"
-              register={register}
-              errors={errors}
-              placeholder="Confirm Password"
-              id="repeatPassword"
-              label="Repeat Password"
               variant="primary"
             />
             <div className="flex flex-col gap-2">
