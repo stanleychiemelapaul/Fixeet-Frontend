@@ -28,17 +28,14 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
       })
       .then(function (response) {
         // Handle successful login here (e.g., store tokens, redirect, etc.)
-        setsuccessRes(response.data.message);
+        console.log("Login successful:", response.data);
       })
       .catch(function (error) {
-        if (
-          error.response.status === 422
-        ) {
+        if (error.response.status === 422) {
           seterrResponse(error.response.data.message);
         } else {
-          seterrResponse('An error occurred. Please try again later.');
+          seterrResponse("An error occurred. Please try again later.");
         }
-
       });
   };
   const handleOnClose = (e) => {
@@ -116,6 +113,16 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               placeholder="Enter Password"
               id="password"
               label="Password"
+              variant="primary"
+            />
+            <Input
+              name="password"
+              type="password"
+              register={register}
+              errors={errors}
+              placeholder="Confirm Password"
+              id="repeatPassword"
+              label="Repeat Password"
               variant="primary"
             />
             <div className="flex flex-col gap-2">
