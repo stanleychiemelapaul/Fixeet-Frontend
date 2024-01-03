@@ -65,7 +65,7 @@ const ReportIssue = ({ onClose }) => {
       <section
         id="close-modal"
         onClick={handleOnClose}
-        className="flex flex-col items-center justify-center fixed inset-0 z-40 bg-black bg-opacity-[0.8] backdrop-blur-0 w-[100%]"
+        className="flex flex-col items-center justify-center fixed inset-0 z-50 bg-black bg-opacity-[0.8] backdrop-blur-0 w-[100%]"
       >
         <div className="flex flex-col gap-8 w-[95%] bg-[#fff]  md:mx-24 p-8 rounded-xl h-auto md:w-[30rem] md:max-w-[50%]">
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
