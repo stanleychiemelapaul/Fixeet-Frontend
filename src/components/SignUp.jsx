@@ -69,12 +69,9 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               className="text-center gen alert alert-success"
               id="message"
               role="alert"
-              style={{ color: "green" }}
+              style={{ color: "green", fontWeight: "bold" }}
             >
               {successRes}
-              <p className="mt-0 pt-0">
-                Redirecting <i className="fa fa-spinner fa-pulse"></i>
-              </p>
             </div>
           ) : (
             <p className=" text-center  text-secondary text-sm md:text-base font-normal ">
