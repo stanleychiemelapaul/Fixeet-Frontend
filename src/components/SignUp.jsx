@@ -31,25 +31,12 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
         setsuccessRes(response.data.message);
       })
       .catch(function (error) {
-        if (error.response) {
-          console.log(
-            "Server responded with error status:",
-            error.response.status
-          );
-          console.log("Error data:", error.response.data);
-
-          if (
-            error.response.status === 422
-          ) {
-            seterrResponse(error.response.data.message);
-          } else {
-            seterrResponse('An error occurred. Please try again later.');
-          }
-        } else if (error.request) {
-          console.log("No response received:", error.request);
-          // Handle request-related errors
+        if (
+          error.response.status === 422
+        ) {
+          seterrResponse(error.response.data.message);
         } else {
-          seterrResponse("An error occurred. Please try again later.");
+          seterrResponse('An error occurred. Please try again later.');
         }
 
       });
