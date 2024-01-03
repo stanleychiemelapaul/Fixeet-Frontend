@@ -116,7 +116,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               variant="primary"
             />
             <Input
-              name="password"
+              name="repeatPassword"
               type="password"
               register={register}
               errors={errors}
