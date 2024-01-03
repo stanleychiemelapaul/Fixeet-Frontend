@@ -27,29 +27,15 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
       })
       .then(function (response) {
         // Handle successful login here (e.g., store tokens, redirect, etc.)
-        console.log("Login successful:", response.data);
+        setsuccessRes(response.data.message);
       })
       .catch(function (error) {
-        if (error.response) {
-          console.log(
-            "Server responded with error status:",
-            error.response.status
-          );
-          console.log("Error data:", error.response.data);
-
-          if (
-            error.response.status === 422
-          ) {
-            seterrResponse(error.response.data.message);
-          } else {
-            seterrResponse('An error occurred. Please try again later.');
-          }
-        } else if (error.request) {
-          console.log("No response received:", error.request);
-          // Handle request-related errors
+        if (
+          error.response.status === 422
+        ) {
+          seterrResponse(error.response.data.message);
         } else {
-          console.log("Error setting up the request:", error.message);
-          seterrResponse("Error occurred while setting up your request");
+          seterrResponse('An error occurred. Please try again later.');
         }
       });
   };
