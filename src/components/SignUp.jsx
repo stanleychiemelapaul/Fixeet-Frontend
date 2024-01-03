@@ -28,7 +28,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
       })
       .then(function (response) {
         // Handle successful login here (e.g., store tokens, redirect, etc.)
-        console.log("Login successful:", response.data);
+        setsuccessRes(response.data.message);
       })
       .catch(function (error) {
         if (error.response.status === 422) {
@@ -69,6 +69,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               className="text-center gen alert alert-success"
               id="message"
               role="alert"
+              style={{ color: "green" }}
             >
               {successRes}
               <p className="mt-0 pt-0">

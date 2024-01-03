@@ -70,6 +70,7 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
               className="text-center alert alert-success"
               id="message"
               role="alert"
+              style={{ color: "green" }}
             >
               {successRes}
               <p className="mt-0 pt-0">
