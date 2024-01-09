@@ -50,7 +50,7 @@ const NavBar = () => {
           onClick={() => setShowModal(true)}
           className="mb-4 hover:bg-[green] rounded-md w-auto p-2 duration-500 hover:-translate-y-1"
         >
-          Sign In
+          Login
         </button>
         <Link
           to="/all-reports"
@@ -62,10 +62,8 @@ const NavBar = () => {
       </div>
       <div className="bg-light flex justify-between items-center px-8 py-4 ">
         {showModal && <Auth onClose={handleModalClose} />}
-        <div className="w-2/5 flex  justify-between items-center relative">
-          <div>
-            <img src={logo} alt="logo" />
-          </div>
+        <div className="w-2/5  flex  justify-between items-center relative">
+          <img src={logo} alt="logo" />
         </div>
 
         {/* Menu and Close icons */}
@@ -94,7 +92,7 @@ const NavBar = () => {
               onClick={() => setShowModal(true)}
               className=" flex  hover:bg-[#becabe] rounded-md w-auto p-1 duration-500 hover:-translate-y-1 cursor-pointer "
             >
-              Sign In
+              Login
             </button>
             <Link
               to="/all-reports"

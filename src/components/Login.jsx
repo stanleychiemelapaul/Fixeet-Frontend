@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { LoginSchema } from "@/config/schema";
 import useSubmit from "@/hooks/useSubmit";
@@ -37,12 +37,10 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
           );
           console.log("Error data:", error.response.data);
 
-          if (
-            error.response.status === 422
-          ) {
+          if (error.response.status === 422) {
             seterrResponse(error.response.data.message);
           } else {
-            seterrResponse('An error occurred. Please try again later.');
+            seterrResponse("An error occurred. Please try again later.");
           }
         } else if (error.request) {
           console.log("No response received:", error.request);
@@ -69,13 +67,14 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
       >
         <div className="flex flex-col gap-8 bg-[#fff] mx-auto md:mx-24 p-10 rounded-[12px] h-auto md:w-[28rem] md:max-w-[50%]">
           <h1 className="text-primary md:text-4xl text-2xl font-bold ">
-            Sign In
+            Login
           </h1>
           {errResponse ? (
             <div
               className="text-center alert alert-danger text-danger"
               id="message"
-              role="alert" style={{ color: "red" }}
+              role="alert"
+              style={{ color: "red" }}
             >
               {errResponse}
             </div>
@@ -95,7 +94,7 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
               Enter your Account Details Below
             </p>
           )}
-          
+
           <form
             className="flex flex-col gap-2 "
             onSubmit={handleSubmit(onLogin)}
@@ -122,7 +121,7 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
             />
             <div className="flex flex-col gap-2 ">
               <Button variant="primary" type="submit">
-                Sign In
+                Login
               </Button>
               <p className="text-lg text-center text-secondary">
                 Don't have an account?{" "}
@@ -130,7 +129,7 @@ const SignIn = ({ visible, switchToSignUp, onClose }) => {
                   className="text-tetiary font-bold cursor-pointer"
                   onClick={switchToSignUp}
                 >
-                  Sign Up
+                  Register
                 </span>
               </p>
             </div>

@@ -47,7 +47,7 @@ const SearchBox = (props) => {
   return (
     <>
       <div className=" flex relative w-full">
-        <InputGroup size="xl" h="3rem" maxW="24rem" fontWeight={600}>
+        <InputGroup size="xl" h="3rem" fontWeight={600}>
           <Input
             placeholder="Enter a location"
             bg="bg-white"

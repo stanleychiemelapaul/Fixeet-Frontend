@@ -135,7 +135,7 @@ const MapView = (props) => {
           {!marker?.length <= 0 ? (
             marker.map((marker) => (
               <Marker position={locationSelection} icon={customIcon}>
-                <Popup>{marker.popUp}</Popup>
+                <Popup title="marker">{marker.popUp}</Popup>
               </Marker>
             ))
           ) : (

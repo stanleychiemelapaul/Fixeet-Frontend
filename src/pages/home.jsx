@@ -23,7 +23,7 @@ const Home = () => {
       <section className="bg-white ">
         <div className="flex flex-col md:flex-row gap-4 p-8 px-4 md:px-8 justify-center items-center w-auto h-auto">
           <div className="flex flex-col gap-8 md:p-4">
-            <p className="text-2xl  md:text-8xl font-semibold ">
+            <p className="text-2xl  md:text-6xl lg:text-8xl font-semibold ">
               Bring your local issues to
               <span className="text-tetiary">Light!</span>
             </p>
@@ -38,46 +38,18 @@ const Home = () => {
               selectPosition={selectPosition}
               setSelectPosition={setSelectPosition}
             />
-            {/* <InputGroup size="xl" h="3rem" fontWeight={600}>
-              <Input
-                placeholder="Enter a location"
-                bg="bg-white"
-                color="#00BE7A"
-                border="2px"
-                borderRadius="4px"
-                px="1rem"
-              />
-            </InputGroup> */}
-            {/* <Input
-              name="location"
-              bg="bg-white"
-              color="#00BE7A"
-              border="2px"
-              borderRadius="4px"
-              height="2.8rem"
-              errors={errors}
-              placeholder="Enter a location"
-              variant="primary"
-            /> */}
-            <div className="flex   md:max-w-[24rem] justify-between ">
+            <div className="flex flex-col gap-4 w-full align-middle md:flex-row  md:max-w-[full] justify-center">
               {" "}
               <Button
                 variant="secondary"
                 type="submit"
-                className=" rounded-[4px] flex items-center gap-2 justify-center hover:border-[#007A4E]"
+                className=" rounded-[0.25rem] flex items-center gap-2 justify-center hover:border-[#007A4E]"
               >
                 <IoEyeSharp /> Use my Location
               </Button>
               <div>
                 <ReportIssueButton />
               </div>
-              {/* <Button
-                variant="primary"
-                // type="submit"
-                className="rounded-[4px] px-0 mx-0 flex gap-2 items-center justify-center hover:bg-[#007A4E]"
-              >
-                <FaEdit /> Report Issue
-              </Button> */}
             </div>
           </div>
         </div>
@@ -86,17 +58,6 @@ const Home = () => {
         <h2 className="font-bold text-2xl mt-4 flex mx-12 ">
           How to report an Issue.
         </h2>
-        {/* <Flex
-          alignItems="center"
-          justifyItems="space-between"
-          justifyContent="center"
-          textColor="#A5A5A5"
-          fontSize={"1rem"}
-          gap="8rem"
-          mb="4rem"
-          w={{ base: "full", md: "90%" }}
-          flexWrap={{ base: "wrap", md: "nowrap" }}
-        > */}
 
         <div className="flex-col   flex md:flex-row md:space-x-10 gap-4 ">
           <div className="flex items-center gap-4 text-secondary font-semibold">
@@ -105,7 +66,7 @@ const Home = () => {
               <Divider orientation="vertical" />
             </Center>
             <div className="font-medium flex flex-col">
-              <p className="">Enter a Location</p>
+              <p className="">Click Report Issue</p>
             </div>
           </div>
           <div className="flex items-center gap-4 text-secondary font-semibold">
@@ -114,7 +75,7 @@ const Home = () => {
               <Divider orientation="vertical" />
             </Center>
             <div className="font-medium">
-              <p className="">Click Report Issue</p>
+              <p className="">Enter details of the issue</p>
             </div>
           </div>
           <div className="flex items-center gap-4 text-secondary font-semibold">
@@ -123,7 +84,7 @@ const Home = () => {
               <Divider orientation="vertical" />
             </Center>
             <div className="font-medium">
-              <p className="">Enter details of the issue</p>
+              <p className="">Add Images </p>
             </div>
           </div>
           <div className="flex items-center gap-4 text-secondary font-semibold">
@@ -136,13 +97,11 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* </Flex> */}
       </section>
       <section className="bg-white items-center justify-center ">
         <div className="flex flex-col items-center p-8">
           <h2 className="font-bold text-2xl  ">Recent Reports</h2>
-          <div className="flex flex-col md:flex-row gap-4 py-4 px-2 md:px-8  max-w-[90rem]  w-auto items-center justify-center space-x-5">
+          <div className="flex flex-col min-w-[10rem] lg:flex-row gap-4 py-4 px-2 md:px-8  md:max-w-[90rem]  w-auto items-center justify-center space-x-5">
             <div className="flex flex-col gap-4 p-2 md:p-4">
               {" "}
               <img
@@ -169,7 +128,7 @@ const Home = () => {
               }}
               className="flex flex-col  gap-4 cursor-pointer p-2 "
             >
-              <div className="flex flex-col md:flex-row gap-4 items-start">
+              <div className="flex flex-col lg:flex-row gap-4 items-start ">
                 <img
                   className="rounded-[4px] max-w-[14rem] w-auto h-auto max-h-[11rem]"
                   src="/badroad.png"
@@ -212,49 +171,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="flex flex-col gap-4 bg-white p-4 ">
-              <div className="flex flex-col gap-4 items-start">
-                <img
-                  className="rounded-[4px]  w-[auto] h-[auto] "
-                  src="/badroad.png"
-                  alt="bad road picture"
-                />
-                <div className="flex flex-col">
-                  <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                  <p className=" flex flex-wrap  text-primary font-bold">
-                    Road in Abysmal Shape, Oremeji Street, Ojuolape LGA, Lagos
-                    State.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 items-start">
-                <img
-                  className="rounded-none  w-auto h-auto"
-                  src="/flood.png"
-                  alt="Flood Picture"
-                />
-                <div className="flex flex-col ">
-                  <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                  <p className=" flex flex-wrap text-primary font-bold">
-                    Flood on Oremeji Street, Ojuolape LGA, Lagos State.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 items-start">
-                <img
-                  className="rounded-none w-auto h-auto "
-                  src="/abandonbuilding.png"
-                  alt="Abandoned building picture"
-                />
-                <div className="flex flex-col">
-                  <p className="text-xs text-tetiary">Nov 15, 2023</p>
-                  <p className=" flex flex-wrap   text-primary font-bold">
-                    Abandoned building that Area Boys use to perform bad
-                    activities.
-                  </p>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>

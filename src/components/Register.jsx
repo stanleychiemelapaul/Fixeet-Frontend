@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { LoginSchema } from "../config/schema";
 import useSubmit from "../hooks/useSubmit";
-import Button from "../components/button";
-import Input from "../components/input";
+import Button from "./button";
+import Input from "./input";
 import { apiurl } from "../config/apiurl";
 
 const SignUp = ({ visible, onClose, switchToSignIn }) => {
@@ -65,7 +65,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
       >
         <div className="flex flex-col gap-2 bg-[#fff] mx-auto md:mx-24 p-10 rounded-xl h-[36rem] md:w-[28rem] md:max-w-[40%]">
           <h1 className="text-primary md:text-4xl text-2xl font-bold -mt-3">
-            Sign Up
+            Register
           </h1>
           {errResponse ? (
             <div
@@ -88,7 +88,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
               </p>
             </div>
           ) : (
-            <p className=" text-center  text-secondary text-sm md:text-base font-normal ">
+            <p className=" text-secondary text-sm md:text-base font-normal">
               Enter your Account Details Below
             </p>
           )}
@@ -139,7 +139,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
             />
             <div className="flex flex-col gap-2">
               <Button variant="primary" type="submit">
-                Sign Up
+                Register
               </Button>
               <p className="text-lg text-center text-secondary">
                 Already have an account?{" "}
@@ -147,7 +147,7 @@ const SignUp = ({ visible, onClose, switchToSignIn }) => {
                   className="text-tetiary font-bold cursor-pointer"
                   onClick={switchToSignIn}
                 >
-                  Sign In
+                  Login
                 </span>
               </p>
             </div>
